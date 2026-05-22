@@ -1,0 +1,17 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>现状诊断-跨境供应链决策智能体</title><link rel="stylesheet" href="./style.css"/>
+</head><body><div class="app-shell">
+<aside class="sidebar"><div class="logo">Supply Chain Agent</div><div class="nav-group">工作台</div><a class="sitem" href="./index.html"><span>总览工作台</span></a><div class="nav-group">智能体能力</div><a class="sitem on" href="./diagnose.html"><span>现状诊断</span></a><a class="sitem" href="./compare.html"><span>方案对比</span></a><a class="sitem" href="./simulate.html"><span>库存仿真</span></a><a class="sitem" href="./execute.html"><span>策略执行</span></a><div class="side-status"><b>运行状态</b><span>诊断模型在线</span><span>规则库已同步</span></div></aside>
+<div class="workspace"><header class="topbar"><div><h1>现状诊断</h1><p class="muted">诊断型智能体：识别供应链瓶颈并解释根因</p></div><div class="chips"><span>为什么</span><span>瓶颈识别</span></div></header>
+<main class="grid">
+<section class="card"><h2>业务现状输入</h2>
+<label>缺货率(%)<input id="oos" type="number" step="0.1" value="8.5"></label>
+<label>滞销品占比(%)<input id="slow" type="number" step="0.1" value="14.2"></label>
+<label>平均运输延迟(天)<input id="delay" type="number" step="0.1" value="2.3"></label>
+<label>海外仓利用率(%)<input id="whuse" type="number" step="0.1" value="89"></label>
+<label>成本超支率(%)<input id="over" type="number" step="0.1" value="6.8"></label>
+<button onclick="runDiagnose()">生成诊断报告</button>
+</section>
+<section class="card"><h2>诊断输出</h2><div id="diagKpi"></div><table id="diagTbl"></table><h3>问题树</h3><div id="problemTree" class="tree"></div><h3>根因解释</h3><p id="diagExp" class="note"></p></section>
+</main></div></div><script src="./app.js"></script><script>runDiagnose()</script></body></html>

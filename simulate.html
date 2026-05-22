@@ -1,0 +1,15 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>库存仿真-跨境供应链决策智能体</title><link rel="stylesheet" href="./style.css"/>
+</head><body><div class="app-shell">
+<aside class="sidebar"><div class="logo">Supply Chain Agent</div><div class="nav-group">工作台</div><a class="sitem" href="./index.html"><span>总览工作台</span></a><div class="nav-group">智能体能力</div><a class="sitem" href="./diagnose.html"><span>现状诊断</span></a><a class="sitem" href="./compare.html"><span>方案对比</span></a><a class="sitem on" href="./simulate.html"><span>库存仿真</span></a><a class="sitem" href="./execute.html"><span>策略执行</span></a><div class="side-status"><b>运行状态</b><span>仿真模型在线</span><span>库存规则已同步</span></div></aside>
+<div class="workspace"><header class="topbar"><div><h1>库存仿真</h1><p class="muted">库存策略、需求波动与运输延迟的联动推演</p></div><div class="chips"><span>库存水位</span><span>服务水平</span></div></header>
+<main class="grid">
+<section class="card"><h2>仿真参数</h2>
+<label>安全库存天数<input id="safeDays" type="range" min="3" max="25" value="10" oninput="runInventorySim()"><span id="safeDaysV">10</span></label>
+<label>需求波动(%)<input id="sdem" type="range" min="0" max="40" value="12" oninput="runInventorySim()"><span id="sdemv">12</span></label>
+<label>运输延迟(天)<input id="shipDelay" type="range" min="0" max="8" step="0.5" value="2" oninput="runInventorySim()"><span id="shipDelayV">2</span></label>
+<label>运价扰动(%)<input id="sfre" type="range" min="-10" max="30" value="5" oninput="runInventorySim()"><span id="sfrev">5</span></label>
+</section>
+<section class="card"><h2>仿真结果</h2><div id="invKpi" class="metric-grid"></div><table id="invTbl"></table><div id="simWarn" class="warn"></div></section>
+</main></div></div><script src="./app.js"></script><script>runInventorySim()</script></body></html>

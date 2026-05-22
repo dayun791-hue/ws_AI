@@ -1,0 +1,24 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>策略执行-跨境供应链决策智能体</title><link rel="stylesheet" href="./style.css"/>
+</head><body><div class="app-shell">
+<aside class="sidebar"><div class="logo">Supply Chain Agent</div><div class="nav-group">工作台</div><a class="sitem" href="./index.html"><span>总览工作台</span></a><div class="nav-group">智能体能力</div><a class="sitem" href="./diagnose.html"><span>现状诊断</span></a><a class="sitem" href="./compare.html"><span>方案对比</span></a><a class="sitem" href="./simulate.html"><span>库存仿真</span></a><a class="sitem on" href="./execute.html"><span>策略执行</span></a><div class="side-status"><b>运行状态</b><span>执行流在线</span><span>复盘任务已开启</span></div></aside>
+<div class="workspace"><header class="topbar"><div><h1>策略执行中心</h1><p class="muted">综合决策型智能体：把优化建议转化为动作、责任、阈值和复核闭环</p></div><div class="ops-panel"><span>执行中 2</span><span>待审批 1</span><span>已闭环 8</span></div></header>
+<main>
+<section class="ops-grid">
+  <div class="ops-card primary"><span>执行完成率</span><b>82%</b><em>本周期策略任务</em></div>
+  <div class="ops-card"><span>预计增益</span><b>+0.41亿</b><em>利润改善</em></div>
+  <div class="ops-card"><span>履约保障</span><b>97.1%</b><em>目标 >96%</em></div>
+  <div class="ops-card warn-card"><span>待复核项</span><b>3</b><em>T+1检查</em></div>
+  <div class="ops-card"><span>闭环周期</span><b>3天</b><em>T+0/T+1/T+3</em></div>
+</section>
+<section class="console-grid">
+  <div class="card"><h2>执行动作编排</h2><table id="execTbl"></table></div>
+  <div class="card"><h2>阈值监控</h2><div class="alert-list">
+    <div><b>履约率低于96%</b><span>自动提高A类SKU安全库存并触发路径复核。</span></div>
+    <div><b>成本收入比高于85%</b><span>压降非核心仓储与加急运输成本。</span></div>
+    <div><b>风险指数高于0.40</b><span>进入风控会签，并启用备选承运商。</span></div>
+  </div></div>
+</section>
+<section class="card"><h2>执行复盘记录</h2><table id="rvTbl"></table><div id="rvExp" class="subnote"></div></section>
+</main></div></div><script src="./app.js"></script><script>renderExecute();renderReview()</script></body></html>

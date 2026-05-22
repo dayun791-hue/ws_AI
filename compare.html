@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>方案对比-跨境供应链决策智能体</title><link rel="stylesheet" href="./style.css"/>
+</head><body><div class="app-shell">
+<aside class="sidebar"><div class="logo">Supply Chain Agent</div><div class="nav-group">工作台</div><a class="sitem" href="./index.html"><span>总览工作台</span></a><div class="nav-group">智能体能力</div><a class="sitem" href="./diagnose.html"><span>现状诊断</span></a><a class="sitem on" href="./compare.html"><span>方案对比</span></a><a class="sitem" href="./simulate.html"><span>库存仿真</span></a><a class="sitem" href="./execute.html"><span>策略执行</span></a><div class="side-status"><b>运行状态</b><span>评分器在线</span><span>策略库已加载</span></div></aside>
+<div class="workspace"><header class="topbar"><div><h1>方案对比</h1><p class="muted">推理型智能体：多目标权衡、方案排序与敏感性判断</p></div><div class="chips"><span>如果会怎样</span><span>多目标评分</span></div></header>
+<main>
+<section class="card control-row"><h2>评分模式</h2><button onclick="setMode('profit')">利润优先</button><button onclick="setMode('service')">履约优先</button><button onclick="setMode('risk')">风险优先</button><span id="modeText" class="pill"></span></section>
+<section class="card"><h2>A/B/C方案综合对比</h2><div id="cmp"></div><div id="brief" class="subnote"></div></section>
+<section class="card"><h2>反事实分析</h2><div id="counterFact" class="metric-grid"></div></section>
+</main></div></div><script src="./app.js"></script><script>renderCompare()</script></body></html>

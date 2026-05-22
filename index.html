@@ -1,0 +1,117 @@
+<!doctype html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>跨境供应链决策智能体平台</title><link rel="stylesheet" href="./style.css"/>
+</head><body>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="logo">Supply Chain Agent</div>
+  <div class="nav-group">工作台</div>
+  <a class="sitem on" href="./index.html"><span>总览工作台</span></a>
+  <div class="nav-group">智能体能力</div>
+  <a class="sitem" href="./diagnose.html"><span>现状诊断</span></a>
+  <a class="sitem" href="./compare.html"><span>方案对比</span></a>
+  <a class="sitem" href="./simulate.html"><span>库存仿真</span></a>
+  <a class="sitem" href="./execute.html"><span>策略执行</span></a>
+  <div class="side-status">
+    <b>运行状态</b>
+    <span>策略引擎在线</span>
+    <span>规则库已同步</span>
+  </div>
+</aside>
+<div class="workspace">
+<header class="topbar">
+  <div><h1>跨境供应链决策智能体平台</h1><p class="muted">供应链运营诊断、方案推演、库存仿真与执行复盘的一体化决策中枢</p></div>
+  <div class="ops-panel"><span>今日任务 12</span><span>风险预警 3</span><span>策略在线</span></div>
+</header>
+<main>
+  <section class="toolbar card">
+    <div>
+      <span class="field-title">业务区域</span>
+      <select id="region" onchange="applyProfile()">
+        <option value="eu">欧洲市场</option>
+        <option value="na">北美市场</option>
+        <option value="sea">东南亚市场</option>
+      </select>
+    </div>
+    <div>
+      <span class="field-title">品类策略</span>
+      <select id="category" onchange="applyProfile()">
+        <option value="fast">高周转品类</option>
+        <option value="season">季节性品类</option>
+        <option value="longtail">长尾品类</option>
+      </select>
+    </div>
+    <div>
+      <span class="field-title">优化目标</span>
+      <select id="goal" onchange="applyProfile()">
+        <option value="balanced">综合均衡</option>
+        <option value="profit">利润优先</option>
+        <option value="service">履约优先</option>
+        <option value="risk">风险优先</option>
+      </select>
+    </div>
+    <button class="btn ghost" onclick="resetProfile()">恢复基准</button>
+  </section>
+  <section class="ops-grid">
+    <button class="ops-card" onclick="focusMetric('score')"><span>综合运营评分</span><b id="opScore">91.8</b><em>较上周期 +3.6</em></button>
+    <button class="ops-card" onclick="focusMetric('ful')"><span>履约健康度</span><b id="opFul">96.20%</b><em>目标阈值 96%</em></button>
+    <button class="ops-card" onclick="focusMetric('cost')"><span>成本控制率</span><b id="opCost">78.89%</b><em>成本收入比</em></button>
+    <button class="ops-card" onclick="focusMetric('sku')"><span>高风险SKU <i class="mini-warn">预警</i></span><b id="opSku">18</b><em>需重点复核</em></button>
+    <button class="ops-card" onclick="focusMetric('wh')"><span>海外仓负载</span><b id="opWh">89%</b><em>欧洲仓偏高</em></button>
+  </section>
+  <section class="card insight-card"><h2>指标解释</h2><div id="metricInsight">点击上方任一指标，可查看该指标的业务含义、风险原因与建议动作。</div></section>
+  <section class="hero-grid">
+    <div class="card"><h2>核心指标总览</h2><div id="homeKpi" class="metric-grid"></div></div>
+    <div class="card"><h2>智能体推荐</h2><div id="homeRec" class="decision-box"></div></div>
+  </section>
+  <section class="card"><h2>业务场景切换</h2>
+    <div class="scenario-grid">
+      <button class="btn ghost" onclick="applyScenario('base')">稳态经营</button>
+      <button class="btn ghost" onclick="applyScenario('freight')">运价上涨</button>
+      <button class="btn ghost" onclick="applyScenario('demand')">需求波峰</button>
+      <button class="btn ghost" onclick="applyScenario('risk')">高风险履约</button>
+    </div>
+  </section>
+  <section class="console-grid">
+    <div class="card"><h2>运营预警</h2>
+      <div class="alert-list">
+        <div><b>欧洲仓负载偏高</b><span>仓储利用率 89%，建议迁移高频SKU至备用仓。</span></div>
+        <div><b>运价扰动上行</b><span>干线运价较基准 +5%，建议锁定鲁棒路径池。</span></div>
+        <div><b>A类SKU缺货风险</b><span>需求波动 12%，建议安全库存提升至 14 天。</span></div>
+      </div>
+    </div>
+    <div class="card"><h2>策略任务队列</h2>
+      <table><tr><th>任务</th><th>状态</th><th>复核点</th></tr>
+      <tr><td>切换中欧班列备选路径</td><td><span class="tag ok">待执行</span></td><td>T+1履约</td></tr>
+      <tr><td>调整A/B类安全库存</td><td><span class="tag ok">进行中</span></td><td>缺货率</td></tr>
+      <tr><td>欧洲仓SKU再分配</td><td><span class="tag bad">需审批</span></td><td>仓储负载</td></tr></table>
+      <p><a class="inline-link" href="./execute.html">进入策略执行中心 →</a></p>
+    </div>
+  </section>
+  <section class="card"><h2>平台能力配置</h2>
+    <div class="cap-grid">
+      <div class="cap-card"><b>数据接入</b><span>订单、库存、运输、仓储、财务五类数据统一进入指标层。</span></div>
+      <div class="cap-card"><b>规则引擎</b><span>支持按区域、品类、时效等级配置策略触发条件。</span></div>
+      <div class="cap-card"><b>方案推演</b><span>同一场景下对利润、履约、风险、库存成本进行并行评估。</span></div>
+      <div class="cap-card"><b>执行闭环</b><span>记录推荐、执行动作、复核指标和偏差修正，形成策略资产。</span></div>
+    </div>
+  </section>
+  <section class="grid">
+    <div class="card"><h2>输入参数</h2>
+      <label>基线总收入(亿元)<input id="rev" type="number" step="0.01" value="29.61"></label>
+      <label>基线总成本(亿元)<input id="cost" type="number" step="0.01" value="23.63"></label>
+      <label>基线履约率(%)<input id="ful" type="number" step="0.01" value="96.20"></label>
+      <label>运价扰动(%)<input id="fre" type="number" step="0.1" value="5"></label>
+      <label>需求波动放大(%)<input id="dem" type="number" step="0.1" value="12"></label>
+      <label>风险偏好(0~1)<input id="risk" type="number" step="0.01" min="0" max="1" value="0.55"></label>
+      <button class="btn primary" onclick="runEval()">运行智能体评估</button>
+    </div>
+    <div class="card"><h2>方案评估结果</h2>
+      <div id="kpi"></div><table id="tbl"></table>
+      <h3>规则命中</h3><div id="rules" class="subnote"></div>
+      <div class="panel2"><div><h3>解释链路</h3><p id="exp" class="note"></p></div><div><h3>执行建议</h3><ul id="todo" class="todo"></ul></div></div>
+    </div>
+  </section>
+</main>
+</div></div>
+<script src="./app.js"></script></body></html>
